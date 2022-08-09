@@ -27,7 +27,7 @@ const port = process.env.PORT || 5016;
 //   next();
 // });
 app.use(express.static('client/build'));
- app.get('*', (req: Request, res: Response) => {
+ app.get('/', (req: Request, res: Response) => {
  res.sendFile(path.join(__dirname + '../client/build/index.html'));
  });
 
