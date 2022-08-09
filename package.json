@@ -11,7 +11,7 @@
     "build": "npx tsc",
     "server": "node dist/index.js",
     "client": "cd client && npm start",
-    "start": "npm run server && npm run client",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" \"npm run client\"",
     "test": "cd client && npm run test",
     "build-prod": "cd client && npm install && cd .. && npm install && npm run build"
