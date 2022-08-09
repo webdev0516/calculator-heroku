@@ -3,6 +3,7 @@ import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import path from "path";
 
 // Internal Dependencies
 import { routes } from './routes';
@@ -21,9 +22,13 @@ app.use(cors());
 // port number
 const port = process.env.PORT || 5016;
 
-app.use('/', (req: Request, res: Response, next) => {
-  req.body = req.query;
-  next();
+// app.use('/', (req: Request, res: Response, next) => {
+//   req.body = req.query;
+//   next();
+// });
+app.use(express.static('client/build'));
+ app.get('*', (req: Request, res: Response) => {
+ res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 // routing
