@@ -8,7 +8,7 @@
     "npm": "8.11.0"
   },
   "scripts": {
-    "build": "npx tsc",
+    "build": "npx tsc && cd client && npm run build",
     "server": "node dist/index.js",
     "client": "cd client && npm start",
     "start": "npm run server",
