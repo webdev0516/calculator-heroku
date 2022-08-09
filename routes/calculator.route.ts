@@ -13,7 +13,6 @@ const calcMain = (req: Request, res: Response) => {
         res.send(totalNum ? totalNum.toString() : "0");
         return;
     }
-
     switch (operation) {
         case "plus":
             res.send((totalNum as number + nextNum).toString());
